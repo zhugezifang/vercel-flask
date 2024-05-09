@@ -1,6 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-   <body>
-      test
-   </body>
+<head>
+    <title>Real Time Number</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var source = new EventSource("/real_time_number");
+            source.onmessage = function(event) {
+                document.getElementById("number").innerHTML = event.data;
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2>Real Time Number: </h2>
+    <p id="number"></p>
+</body>
 </html>

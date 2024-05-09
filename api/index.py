@@ -1,6 +1,17 @@
-from flask import Flask, render_template,request, session,jsonify
+from flask import Flask, render_template,request, session,jsonify,Response, stream_with_context
 
 app = Flask(__name__)
+
+
+@app.route('/real_time_number')
+def real_time_number():
+    def generate():
+        for i in range(100):
+            yield '{"number": %s}' % i
+            time.sleep(1)
+
+    return Response(stream_with_context(generate()), mimetype='application/json')
+
 
 @app.route('/hello')
 def home():
