@@ -41,3 +41,7 @@ def result():
 @app.route('/html')
 def html():
    return render_template('test.html')
+
+@app.route('/list')
+def list_html():
+   return render_template('list.html')   
