@@ -24,7 +24,7 @@ def get_data():
     age = request.args.get("age")
     return jsonify({"name": name,"age":age})
 
-@app.route('/')
+@app.route('/hello1')
 def hello():
     return 'Hello, world'
 
@@ -42,6 +42,6 @@ def result():
 def html():
    return render_template('test.html')
 
-@app.route('/list')
+@app.route('/')
 def list_html():
    return render_template('list.html')   
