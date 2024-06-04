@@ -38,10 +38,10 @@ def result():
    dict = {'phy':50,'che':60,'maths':70}
    return render_template('result.html', result = dict)
 
-@app.route('/html')
+@app.route('/')
 def html():
    return render_template('test.html')
 
-@app.route('/')
+@app.route('/list')
 def list_html():
    return render_template('list.html')   
